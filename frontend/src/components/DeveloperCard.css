@@ -1,0 +1,105 @@
+.card-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+/* HEADER */
+.card-header {
+  position: relative;
+  padding: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.card-header-bg {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.card-identity {
+  display: flex; gap: 1.5rem; align-items: flex-start;
+  position: relative;
+}
+.card-avatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  border: 2px solid var(--border2); flex-shrink: 0;
+}
+.card-name { font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.card-username { font-family: var(--mono); font-size: 12px; color: var(--blue); text-decoration: none; }
+.card-username:hover { text-decoration: underline; }
+.card-bio { font-size: 13px; color: var(--muted2); margin-top: 6px; line-height: 1.5; max-width: 480px; }
+.card-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; font-size: 11px; color: var(--muted2); font-family: var(--mono); }
+.card-type-badge {
+  position: absolute; top: 2rem; right: 2rem;
+  font-family: var(--mono); font-size: 11px;
+  border: 1px solid; padding: 5px 12px;
+  letter-spacing: 0.06em;
+}
+
+/* STATS ROW */
+.stats-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+.stat-cell {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 1rem; gap: 3px;
+  border-right: 1px solid var(--border);
+}
+.stat-cell:last-child { border-right: none; }
+.stat-num { font-family: var(--mono); font-size: 1.4rem; font-weight: 700; color: var(--text); }
+.stat-label { font-size: 10px; color: var(--muted2); letter-spacing: 0.12em; text-transform: uppercase; }
+
+/* BODY */
+.card-body { display: grid; grid-template-columns: 280px 1fr; gap: 0; }
+.card-left { border-right: 1px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; gap: 2rem; }
+.card-right { padding: 1.5rem; }
+
+.section-label {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--blue); letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section { display: flex; flex-direction: column; }
+
+/* SCORE */
+.big-score {
+  font-family: var(--mono); font-size: 3.5rem; font-weight: 700;
+  line-height: 1; margin-bottom: 1rem;
+}
+.big-score-max { font-size: 1rem; color: var(--muted2); }
+.score-bars { display: flex; flex-direction: column; gap: 8px; }
+.score-bar-row { display: flex; align-items: center; gap: 8px; }
+.score-bar-label { font-family: var(--mono); font-size: 10px; color: var(--muted2); width: 52px; }
+.score-bar-track { flex: 1; height: 4px; background: var(--surface3); border-radius: 2px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 2px; transition: width 0.8s ease; }
+.score-bar-val { font-family: var(--mono); font-size: 10px; color: var(--muted2); width: 32px; text-align: right; }
+
+/* LANGUAGES */
+.lang-list { display: flex; flex-direction: column; gap: 8px; }
+.lang-row { display: flex; align-items: center; gap: 8px; }
+.lang-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.lang-dot.sm { width: 6px; height: 6px; }
+.lang-name { font-size: 12px; color: var(--text); width: 90px; flex-shrink: 0; }
+.lang-bar-track { flex: 1; height: 3px; background: var(--surface3); border-radius: 2px; overflow: hidden; }
+.lang-bar-fill { height: 100%; border-radius: 2px; }
+.lang-pct { font-family: var(--mono); font-size: 10px; color: var(--muted2); width: 30px; text-align: right; }
+
+/* REPOS */
+.repo-list { display: flex; flex-direction: column; gap: 8px; }
+.repo-card {
+  display: block; text-decoration: none;
+  background: var(--surface2); border: 1px solid var(--border);
+  padding: 12px 14px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.repo-card:hover { border-color: var(--blue); background: var(--surface3); }
+.repo-name { font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 4px; }
+.repo-desc { font-size: 12px; color: var(--muted2); line-height: 1.4; margin-bottom: 8px; }
+.repo-meta { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--muted2); font-family: var(--mono); }
+.repo-lang { display: flex; align-items: center; gap: 5px; }
+
+@media (max-width: 640px) {
+  .card-body { grid-template-columns: 1fr; }
+  .card-left { border-right: none; border-bottom: 1px solid var(--border); }
+  .card-type-badge { position: static; margin-top: 1rem; display: inline-block; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+}
